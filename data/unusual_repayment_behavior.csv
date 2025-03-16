@@ -1,0 +1,13 @@
+credit_limit_category,payment_behavior,total_customers,defaulters,default_rate
+High Credit Limit,Unusual Behavior,210,44,20.95
+High Credit Limit,Highly Unusual Behavior,4934,847,17.17
+High Credit Limit,Normal Behavior,1549,218,14.07
+Low Credit Limit,Highly Unusual Behavior,6776,2209,32.6
+Low Credit Limit,Unusual Behavior,85,24,28.24
+Low Credit Limit,Normal Behavior,497,131,26.36
+Medium Credit Limit,Unusual Behavior,144,47,32.64
+Medium Credit Limit,Highly Unusual Behavior,6270,1589,25.34
+Medium Credit Limit,Normal Behavior,732,131,17.9
+Very High Credit Limit,Unusual Behavior,139,24,17.27
+Very High Credit Limit,Highly Unusual Behavior,4344,575,13.24
+Very High Credit Limit,Normal Behavior,1721,154,8.95
