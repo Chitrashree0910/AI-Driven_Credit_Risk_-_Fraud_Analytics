@@ -1,0 +1,1 @@
+{"XGBoost (Threshold = 0.35)": {"Accuracy": 0.6272, "Precision": 0.3426, "Recall": 0.746, "F1-score": 0.4695, "ROC-AUC": 0.7494}, "Random Forest": {"Accuracy": 0.7873, "Precision": 0.5207, "Recall": 0.4822, "F1-score": 0.5008, "ROC-AUC": 0.7389}}

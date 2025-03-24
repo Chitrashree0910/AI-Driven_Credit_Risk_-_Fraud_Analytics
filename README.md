@@ -253,3 +253,98 @@ The model successfully distinguishes **Low-Risk & High-Risk** customers.
 - **Dynamic Risk Categorization** : **Automated threshold selection** using ROC analysis for **adaptive decision-making**
 - **Feature Importance (SHAP)** : AI-powered insights help **financial institutions optimize lending strategies**
 - **Optimized Decision Threshold (0.6083)** : **AI-assisted threshold tuning** improved classification of high-risk borrowers
+
+## Step 4: AI-Driven Fraud Detection
+This step focuses on detecting fraudulent activities using **Anomaly Detection (Unsupervised ML)** and **AI-Powered NLP** to analyze fraud-related customer complaints.
+
+### Data Analysis
+**Part-1: Anomaly Detection (Unsupervised ML)**
+- Loaded the **preprocessed dataset** (`X_test`, `y_test`, `y_train`, `X_train`) from Feature Engineering. This dataset is **cleaned**, **balanced with SMOTE**, and contains selected features
+- Implemented **AI-Driven Fraud Detection**:
+    - **Anomaly detection** to identify fraudulent transactions
+    - **Isolation Forest** (Unsupervised ML) that detects anomalies by isolating rare instances
+- Fraud Detection Results:
+    - Isolation Forest initially detected **300 potential fraud** cases at a **5% contamination rate**
+    - But the **final model** used a dynamically adjusted **22.12% contamination rate** based on actual fraud occurrence in the dataset
+    - **Actual Fraud cases were 1327** and Isolation Forest flagged approximately the same proportion of cases in `X_test`
+- Tested different **contamination rates** to analyze the impact on fraud detection:
+    - **15%** (Lower than actual fraud rate)
+    - **22%** (Actual fraud rate)
+    - **30%** (Higher than actual fraud rate)
+- Compared Models:
+    - Trained and evaluated **Local Outlier Factor (LOF) and One-class SVM** and compared all models (Isolation Forest vs. LOF vs. One-Class SVM) to see the performance
+    - Best Model: Isolation Forest with **22.12% contamination rate**, providing the best fraud detection balance
+
+Detailed scripts can be found in [`5_fraud_detection.ipynb`](notebooks/5_fraud_detection.ipynb)
+
+**Part-2: AI-Powered NLP for Fraud Complaints**
+
+- Analyzed customer complaints to identify fraud-related patterns using **NLP techniques**
+- Loaded a dataset of 36,359 fraud-related complaints from the Consumer Financial Protection Bureau (CFPB) dataset
+ - Performed EDA and applied text preprocessing:
+    - Removed stopwords, special characters, and converted text to lowercase
+    - **Tokenized** the text using **spaCy**
+- Applied **TF-IDF (Term Frequency-Inverse Document Frequency)** to extract important terms from complaints
+- **LDA (Latent Dirichlet Allocation)** Topic Modeling to group complaints into fraud-related topics
+- **Conducted Sentiment Analysis using VADER**: Identified negative sentiment patterns related to fraud cases
+
+Detailed scripts can be found in [`5_nlp_fraud_analysis.ipynb`](notebooks/5_nlp_fraud_analysis.ipynb)
+
+---
+### Data Visualization
+Analyzing different contamination rates (15%, actual_fraud_percentage, 30%)
+```python
+from sklearn.metrics import classification_report
+import pandas as pd
+
+contamination_values = [0.15, actual_fraud_percentage, 0.30]
+
+for contamination in contamination_values:
+    iso_forest = IsolationForest(n_estimators = 100, contamination = contamination, random_state = 42)
+    iso_forest.fit(X_train)
+
+    y_pred_anomaly = [1 if x == -1 else 0 for x in y_pred_anomaly]
+```
+
+VADER Sentiment Analyzer
+```python
+sia = SentimentIntensityAnalyzer()
+
+# Function to analyze sentiment
+def get_sentiment(text):
+    scores = sia.polarity_scores(text)
+    if scores["compound"] >= 0.05:
+        return "Positive"
+    elif scores["compound"] <= -0.05:
+        return "Negative"
+    else:
+        return "Neutral"
+sentiment_counts = df_complaints["Sentiment"].value_counts()
+```
+---
+### Results
+Analysis of Different Contamination Rates in Isolation Forest
+
+| Contamination | Precision (Fraud) | Recall (Fraud) | 
+|---------------|-------------------|----------------|
+| 15%           | 0.30              | 0.21           |
+| 22%           | 0.30              | 0.30           |
+| 30%           | 0.30              | 0.39           | 
+
+<br>
+
+![Fraud_Common_Words](plot_images/Fraud_Common_Words.png)
+*Most Common Words in Fraud Complaints*
+<br>
+
+#### Sentiment Analysis Results
+- Negative complaints: 11280
+- Positive complaints: 1447
+- Neutral complaints: 285
+
+### Insights
+- **Fraudulent transactions detected** using **Isolation Forest & One-Class SVM**
+- **Fraud-related complaints analyzed** using **TF-IDF, LDA Topic Modeling, and Sentiment Analysis**
+- **Common fraud complaints** involve **unauthorized transactions, identity theft, and payment disputes**
+- **Negative sentiment** dominates fraud-related complaints, highlighting customer dissatisfaction
+- **AI-powered fraud detection** improves efficiency, reducing manual investigation efforts
