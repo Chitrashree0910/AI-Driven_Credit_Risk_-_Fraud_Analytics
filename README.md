@@ -362,6 +362,10 @@ An interactive Power BI dashboard was developed to visualize AI-driven fraud det
 - Fraud prediction results from unsupervised ML models
 
 ### Usage
-- Open [`Fraud_Detection_Dashboard.pbix`](dashboard\Fraud_Detection_Dashboard.pbix) in Power BI
+- Open [`Fraud_Detection_Dashboard.pbix`](dashboard/Fraud_Detection_Dashboard.pbix) in Power BI
 - Explore fraud trends, NLP insights, and anomaly detection results
 - Use interactive filters to analyze specific fraud categories
+
+### Results
+![Fraud_Detection_Dashboard](plot_images/Fraud_Detection_Dashboard.png) 
+*Fraud Detection Dashboard*
