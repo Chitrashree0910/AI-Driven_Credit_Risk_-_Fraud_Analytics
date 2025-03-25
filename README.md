@@ -13,7 +13,7 @@ The **AI-Driven Credit Risk & Fraud Analytics** project leverages machine learni
 
 4. **AI-Driven Fraud Detection**  
 
-5. **Interactive Tableau Dashboard & Business Insights**  
+5. **Interactive Power BI Dashboard**  
 
 ## Tools & Technologies Used
 
@@ -348,3 +348,20 @@ Analysis of Different Contamination Rates in Isolation Forest
 - **Common fraud complaints** involve **unauthorized transactions, identity theft, and payment disputes**
 - **Negative sentiment** dominates fraud-related complaints, highlighting customer dissatisfaction
 - **AI-powered fraud detection** improves efficiency, reducing manual investigation efforts
+
+## Step 5: Interactive Power BI Dashboard
+An interactive Power BI dashboard was developed to visualize AI-driven fraud detection insights. This dashboard provides an intuitive way to analyze fraud trends and patterns based on machine learning results.
+
+### Key Features
+- **Fraud Trend Analysis** – Identifies fraud occurrences over time using AI-powered detection
+- **High-Risk Transaction Patterns** – Highlights fraudulent transactions using anomaly detection (Isolation Forest)
+- **NLP Sentiment Insights** – Displays common fraud-related keywords from customer complaints
+
+### Data Sources
+- `complaints_sample.csv` – Processed dataset containing fraud-related complaints
+- Fraud prediction results from unsupervised ML models
+
+### Usage
+- Open [`Fraud_Detection_Dashboard.pbix`](dashboard\Fraud_Detection_Dashboard.pbix) in Power BI
+- Explore fraud trends, NLP insights, and anomaly detection results
+- Use interactive filters to analyze specific fraud categories
