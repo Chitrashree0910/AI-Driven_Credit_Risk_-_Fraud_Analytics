@@ -350,6 +350,28 @@ Analysis of Different Contamination Rates in Isolation Forest
 - **AI-powered fraud detection** improves efficiency, reducing manual investigation efforts
 
 ## Step 5: Interactive Power BI Dashboard
+
+### Credit Risk Prediction Dashboard
+This Credit Risk Prediction Dashboard provides a comprehensive analysis of credit risk assessment using machine learning predictions. The dashboard visualizes customer risk scores, categorizes them into High Risk and Low Risk, and offers interactive filters for deeper insights.
+
+The predictions are generated using an XGBoost model, trained on historical credit card transactions and repayment behaviors. The results are displayed in Power BI to facilitate easy decision-making for financial institutions.
+
+### Key Features
+- **Risk Score Analysis** - Displays the predicted Risk Scores for customers based on risk scores
+- **Customer Risk Categorization** - Segments customers into High Risk and Low Risk groups
+- **Aggregated Metrics** - Displays the count of customers in each risk category and the sum of risk scores to understand overall risk exposure
+
+### Results
+![Credit_Risk_Prediction](plot_images/Credit_Risk_Prediction.png) 
+*Credit Risk Prediction Dashboard*
+
+### Insights
+- **Majority of Customers Are High Risk**: The **High Risk** category dominates the dataset (~73%), indicating potential default risks
+- **Customer-Level Analysis**: The **Customer ID filter** helps analyze specific individuals' risk levels, aiding in personalized loan approval decisions
+- **Financial Decision-Making**: Banks and financial institutions can use these insights to fine-tune lending policies, reduce exposure to risky loans, and improve customer segmentation for credit offerings
+
+---
+### Fraud Detection Dashboard
 An interactive Power BI dashboard was developed to visualize AI-driven fraud detection insights. This dashboard provides an intuitive way to analyze fraud trends and patterns based on machine learning results.
 
 ### Key Features
@@ -361,11 +383,23 @@ An interactive Power BI dashboard was developed to visualize AI-driven fraud det
 - `complaints_sample.csv` – Processed dataset containing fraud-related complaints
 - Fraud prediction results from unsupervised ML models
 
-### Usage
-- Open [`Fraud_Detection_Dashboard.pbix`](dashboard/Fraud_Detection_Dashboard.pbix) in Power BI
-- Explore fraud trends, NLP insights, and anomaly detection results
-- Use interactive filters to analyze specific fraud categories
-
 ### Results
 ![Fraud_Detection_Dashboard](plot_images/Fraud_Detection_Dashboard.png) 
 *Fraud Detection Dashboard*
+
+### Usage
+- Open [`Credit_Fraud_Dashboard.pbix`](dashboard/Credit_Fraud_Dashboard.pbix) in Power BI
+- Explore credit risk, fraud trends, NLP insights, and anomaly detection results
+- Use interactive filters to analyze specific fraud categories
+
+## Future Improvements & Enhancements
+- **Advanced NLP for Fraud Detection** - Implement entity recognition (NER) to extract fraud-related entities (names, account numbers, etc.)
+- **MLOps & Model Monitoring** - Continuous model retraining using new data and implement model drift detection to maintain accuracy
+- **Enhancing Explainability & Fairness** - Implement LIME & SHAP dashboards for deeper interpretability
+
+## Conclusion
+This project successfully developed an **AI-driven credit risk and fraud analytics system**, leveraging **machine learning**, **AI-powered explainability**, and **NLP techniques**. Through a structured pipeline, we processed raw credit card data, engineered features, trained multiple models, and deployed an interactive **Power BI dashboard** for real-time insights.
+
+The **XGBoost model with AutoML tuning** achieved the best performance in credit risk prediction, improving the **ROC-AUC score to 0.7494** and significantly enhancing recall for high-risk customers. For fraud detection, **NLP-driven sentiment analysis** of complaints identified fraudulent patterns, providing valuable insights into financial crimes.
+
+The project demonstrates how AI can **enhance risk assessment**, **improve fraud detection**, and **optimize financial decision-making**, ultimately leading to **smarter lending strategies and reduced financial losses**.
