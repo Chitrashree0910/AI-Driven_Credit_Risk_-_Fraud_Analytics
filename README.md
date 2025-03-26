@@ -28,7 +28,7 @@ The **AI-Driven Credit Risk & Fraud Analytics** project leverages machine learni
 - NLP (Text analysis for fraud-related complaints)
 
 ### **Visualization & Reporting:**
-- Tableau (Interactive dashboards for financial insights)
+- Power BI (Interactive dashboards for financial insights)
 - Matplotlib & Seaborn (EDA & statistical visualizations)
 
 ### **Project Development & Deployment:**
